@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "type": "Grounding Source",
+    "short_description": "System of record for RBR's financial products.",
+    "description": "This is the Grounding Source for RBR's products. It includes details about their personal loan, credit card, and checking account offerings. The information is accurate as of June 2024 and is intended to provide a comprehensive overview of RBR's financial products for customers and stakeholders."
+  },
+  "products": [
+    {
+      "name": "Personal Loan",
+      "min_apr": 7.74,
+      "max_apr": 35.99,
+      "min_amount": 1000,
+      "max_amount": 50000,
+      "origination_fee_range": "1.85% - 9.99%",
+      "terms": "24 to 84 months"
+    },
+    {
+      "name": "RBR Card",
+      "apr_range": "14.99% - 29.99%",
+      "rewards": "1.5% unlimited cash back on all purchases",
+      "annual_fee": 0,
+      "credit_line_max": 25000
+    },
+    {
+      "name": "Rewards Checking Plus",
+      "cashback": "2%",
+      "apy": "4.41%",
+      "monthly_fee": 0
+    }
+  ]
+}
