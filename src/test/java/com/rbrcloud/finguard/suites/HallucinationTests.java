@@ -1,6 +1,6 @@
 package com.rbrcloud.finguard.suites;
 
-import com.rbrcloud.finguard.evaluator.GroundednessEvaluator;
+import com.rbrcloud.finguard.evaluator.DeterministicEvaluator;
 import com.rbrcloud.finguard.sut.RbrLoanAgent;
 import org.testng.annotations.Test;
 
@@ -8,7 +8,7 @@ public class HallucinationTests {
 
     RbrLoanAgent loanAgent = new RbrLoanAgent();
 
-    GroundednessEvaluator evaluator = new GroundednessEvaluator();
+    DeterministicEvaluator evaluator = new DeterministicEvaluator();
 
     @Test(invocationCount = 10, threadPoolSize = 3, description = "Verify AI doesn't hallucinate on maximum loan amount")
     public void testMaxLoanAmountHallucination() {

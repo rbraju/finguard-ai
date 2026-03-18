@@ -6,12 +6,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * The model judge.
+ * Method: Deterministic (Regex + JSON)
+ * Goal:   Verify "Hard Facts" like APR and loan amounts.
+ * Rule:   If it is in the truth source, it is correct, else it is a hallucination.
+
  * Pulls entities from unstructured AI responses and perform 'Groundedness checks' against the truth source.
- *
  * These are "Deterministic Evaluators" that can be implemented with traditional programming techniques.
  */
-public class GroundednessEvaluator {
+public class DeterministicEvaluator {
 
     // The source of truth for RBR products data
     private final KnowledgeBase kb = new KnowledgeBase();
@@ -47,7 +49,8 @@ public class GroundednessEvaluator {
         double minApr = personalLoan.get("min_apr").asDouble();
         double maxApr = personalLoan.get("max_apr").asDouble();
 
-        // Extract APR values from the AI response
+        // Extract APR values from the AI response.
+        // Get numbers that are followed by a percentage sign, allowing for formats like "5%" or "5.5%"
         Pattern pattern = Pattern.compile("(\\d{1,2}(?:\\.\\d{1,2})?)\\s?%");
         Matcher matcher = pattern.matcher(aiResponse);
 

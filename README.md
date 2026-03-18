@@ -68,6 +68,7 @@ finguard-ai/
 | Path | Purpose |
 |------|--------|
 | **HallucinationTests.java** | TestNG suite: calls `RbrLoanAgent` with queries and asserts `GroundednessEvaluator` finds responses grounded (e.g. max loan amount ≤ KB max, APR within range). Includes a flaky scenario (personal loan + loan amount) to simulate intermittent hallucination. |
+| **ComplianceTests.java** | TestNG suite: drives `RbrLoanAgent` responses through `SemanticsComplianceEvaluator` (LLM-based) to ensure responses meet semantic/compliance requirements (expects a `PASS` result). |
 
 ### `src/test/resources/`
 
@@ -105,7 +106,7 @@ Evaluators (e.g. `GroundednessEvaluator`) use this to reject responses that stat
 ./mvnw test
 ```
 
-Tests live in `HallucinationTests`: they drive `RbrLoanAgent` and assert groundedness via `GroundednessEvaluator`.
+Tests live in `HallucinationTests` and `ComplianceTests`: they drive `RbrLoanAgent` and assert groundedness via `GroundednessEvaluator` and semantic/compliance behavior via `SemanticsComplianceEvaluator`.
 
 ---
 
